@@ -14,6 +14,8 @@
             //b) We use an interface when different classes need to share the same behavior
             //c) No class cannot inherit from multiple abstract classes but class can implement multiple interfaces
             #endregion
+
+
         }
     }
 }

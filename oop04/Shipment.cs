@@ -1,6 +1,6 @@
 ﻿namespace oop04
 { 
-    public class Shipment
+    public abstract class Shipment
     {
         private string trackingCode;
         private string description;
@@ -70,11 +70,9 @@
             }
 
         }
-        public  virtual decimal EstimatedCost 
-       {
-            get {
-               return DeliveryFee + (Weight * 5); 
-            }
+        public  abstract decimal EstimatedCost 
+        {
+            get;
         }
 
         public Shipment(string trackingCode)
@@ -115,14 +113,14 @@
         }
 
 
-        public virtual void PrintShipment()
-        {
-            Console.WriteLine($"Tracking Code: {TrackingCode}");
-            Console.WriteLine($"Description: {Description}");
-            Console.WriteLine($"Weight: {Weight}");
-            Console.WriteLine($"Delivery Fee: {DeliveryFee}");
-            Console.WriteLine($"Destination: {Destination.GetFullAddress()}");
-            Console.WriteLine($"Estimated Cost: {EstimatedCost}");
-        }
+        public abstract void PrintShipment();
+        
+            //console.writeline($"tracking code: {trackingcode}");
+            //console.writeline($"description: {description}");
+            //console.writeline($"weight: {weight}");
+            //console.writeline($"delivery fee: {deliveryfee}");
+            //console.writeline($"destination: {destination.getfulladdress()}");
+            //console.writeline($"estimated cost: {estimatedcost}");
+        
     }
 }

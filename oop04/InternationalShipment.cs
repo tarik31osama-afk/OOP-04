@@ -1,6 +1,6 @@
 ﻿namespace oop04
 {
-    public class InternationalShipment:Shipment
+    public class InternationalShipment:Shipment, ITrackable, IInsurable
     {
         private string destinationCountry;
         private decimal customsFee;
@@ -56,10 +56,25 @@
 
         public override void PrintShipment()
         {
-          base.PrintShipment();
+
+            Console.WriteLine($"Tracking Code: {TrackingCode}");
+            Console.WriteLine($"Description: {Description}");
+            Console.WriteLine($"Weight: {Weight}");
+            Console.WriteLine($"Delivery Fee: {DeliveryFee}");
+            Console.WriteLine($"Destination: {Destination.GetFullAddress()}");
+            Console.WriteLine($"Estimated Cost: {EstimatedCost}");
             Console.WriteLine($"Destination Country: {DestinationCountry}");
             Console.WriteLine($"Customs Fee: {CustomsFee}");
 
+        }
+    
+        public string GetTrackingStatus()
+        {
+            return $"Shipment {TrackingCode} has been Delivered.";
+        }
+        public decimal CalculateInsurance()
+        {
+            return (0.12m * EstimatedCost);
         }
     }
 }
